@@ -7,10 +7,10 @@
     "dev": "tsx watch src/server.ts",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev",
-    "prisma:deploy": "prisma migrate deploy",
-    "prisma:studio": "prisma studio",
+    "prisma:generate": "DATABASE_URL=${DATABASE_URL:-postgresql://postgres:postgres@localhost:5433/yoodash?schema=public} prisma generate",
+    "prisma:migrate": "DATABASE_URL=${DATABASE_URL:-postgresql://postgres:postgres@localhost:5433/yoodash?schema=public} prisma migrate dev",
+    "prisma:deploy": "DATABASE_URL=${DATABASE_URL:-postgresql://postgres:postgres@localhost:5433/yoodash?schema=public} prisma migrate deploy",
+    "prisma:studio": "DATABASE_URL=${DATABASE_URL:-postgresql://postgres:postgres@localhost:5433/yoodash?schema=public} prisma studio",
     "lint": "echo 'No linter configured'"
   },
   "dependencies": {
