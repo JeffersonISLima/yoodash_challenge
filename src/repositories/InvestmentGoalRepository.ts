@@ -1,5 +1,5 @@
 import { Prisma } from '@prisma/client';
-import { prisma } from '../database/prisma.js';
+import { prisma } from '../../database/prisma.js';
 import { InvestmentGoal, Month } from '../entities/InvestmentGoal.js';
 import {
   CreateInvestmentGoal,
