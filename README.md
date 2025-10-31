@@ -17,6 +17,8 @@ npm run prisma:generate
 # aplicar migrações (desenvolvimento)
 npm run prisma:migrate
 npm run dev
+# para ver as informações cadastradas no banco
+npm run prisma:studio
 ```
 
 - Rota de diagnóstico: `GET /`
