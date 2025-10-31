@@ -9,6 +9,7 @@ COPY prisma ./prisma
 COPY prisma.config.ts* ./
 COPY tsconfig.json ./
 COPY src ./src
+COPY database ./database
 
 ENV NODE_ENV=production
 
