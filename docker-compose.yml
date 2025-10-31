@@ -1,4 +1,4 @@
-version: "3.9"
+version: '3.9'
 services:
   db:
     image: postgres:16-alpine
@@ -7,11 +7,11 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
       POSTGRES_DB: ${POSTGRES_DB:-yoodash}
     ports:
-      - "5433:5432"
+      - '5433:5432'
     volumes:
       - db_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER:-postgres}"]
+      test: ['CMD', 'pg_isready', '-U', '${POSTGRES_USER:-postgres}']
       interval: 5s
       timeout: 5s
       retries: 10
@@ -23,13 +23,20 @@ services:
       DATABASE_URL: postgres://$${POSTGRES_USER:-postgres}:$${POSTGRES_PASSWORD:-postgres}@db:5432/$${POSTGRES_DB:-yoodash}
       NODE_ENV: production
     ports:
-      - "3000:3000"
+      - '3000:3000'
     depends_on:
       db:
         condition: service_healthy
     healthcheck:
-      
-test: ['CMD', 'wget', '--no-verbose', '--tries=1', '--spider', 'http://localhost:3000/']
+      test:
+        [
+          'CMD',
+          'wget',
+          '--no-verbose',
+          '--tries=1',
+          '--spider',
+          'http://localhost:3000/',
+        ]
       interval: 10s
       timeout: 5s
       retries: 5
