@@ -4,14 +4,6 @@ API RESTful para metas de investimento com Fastify, PostgreSQL (Docker), Prisma 
 
 ## Como executar
 
-- Subir com Docker Compose:
-
-```bash
-docker compose up -d --build
-# aplicar migrações com Prisma
-docker compose exec api npm run prisma:deploy
-```
-
 - Desenvolvimento local:
 
 ```bash
