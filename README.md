@@ -16,6 +16,8 @@ docker compose exec api npm run prisma:deploy
 
 ```bash
 npm install
+# criar arquivo .env (opcional, usa defaults)
+cp .env.example .env
 # banco com docker
 docker compose up -d db
 # gerar Prisma Client
