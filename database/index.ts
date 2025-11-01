@@ -6,7 +6,7 @@ if (!DATABASE_URL) {
   throw new Error('DATABASE_URL is not set');
 }
 
-export const POOL_CLIENT : Pool = new Pool({ connectionString: DATABASE_URL });
+export const POOL_CLIENT: Pool = new Pool({ connectionString: DATABASE_URL });
 
 export async function query<T extends QueryResultRow = QueryResultRow>(
   text: string,
