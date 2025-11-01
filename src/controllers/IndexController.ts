@@ -9,14 +9,13 @@ export class IndexController {
   ): Promise<void> {
     reply.send({
       welcome: 'Welcome To Investment Goals API (Yoodash Challenge)',
-      build: process.env.BUILD || 'development',
       env: process.env.NODE_ENV || 'development',
-      profile: process.env.PROFILE,
       hostname: hostname(),
       pid: process.pid,
       node_version: process.versions.node,
       date_time: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      description: process.env.PROJECT_DESCRIPTION,
     });
   }
 }
