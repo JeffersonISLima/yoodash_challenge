@@ -1,11 +1,11 @@
-import { Prisma } from '@prisma/client';
-import { prisma } from '../../database/prisma.js';
-import { InvestmentGoal, Month } from '../entities/InvestmentGoal.js';
 import {
   CreateInvestmentGoal,
   UpdateInvestmentGoal,
   ListInvestmentGoalsFilters,
 } from '../schemas/investment-goal.js';
+import { Prisma } from '@prisma/client';
+import { prisma } from '../../database/prisma.js';
+import { InvestmentGoal, Month } from '../entities/InvestmentGoal.js';
 
 function mapPrismaToModel(data: {
   id: string;
