@@ -25,10 +25,4 @@ export class InvestmentGoal {
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
   }
-
-  getPerMonthValue(): number {
-    return this.months.length > 0
-      ? Number((this.totalValue / this.months.length).toFixed(2))
-      : 0;
-  }
 }
