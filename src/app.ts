@@ -19,9 +19,12 @@ export async function buildApp() {
     },
   });
 
+  // Routes
   await app.register(indexRoutes);
-  await app.register(swaggerUI, { routePrefix: '/docs' });
   await app.register(investmentGoalsRoutes, { prefix: '/investment-goals' });
+
+  // Swagger UI documentation
+  await app.register(swaggerUI, { routePrefix: '/docs' });
 
   return app;
 }
