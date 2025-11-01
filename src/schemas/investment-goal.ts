@@ -26,11 +26,15 @@ export const createInvestmentGoalBody = z.object({
   totalValue: z.number().finite().nonnegative(),
 });
 
-export const updateInvestmentGoalBody = z.object({
-  name: z.string().min(1, 'nome é obrigatório').optional(),
-  months: z.array(monthEnum).min(1, 'informe pelo menos um mês').optional(),
-  totalValue: z.number().finite().nonnegative().optional(),
-});
+export const updateInvestmentGoalBody = z
+  .object({
+    name: z.string().min(1, 'nome é obrigatório').optional(),
+    months: z.array(monthEnum).min(1, 'informe pelo menos um mês').optional(),
+    totalValue: z.number().finite().nonnegative().optional(),
+  })
+  .refine((data) => Object.keys(data).length > 0, {
+    message: 'Pelo menos um campo deve ser fornecido para atualização',
+  });
 
 export const investmentGoalParams = z.object({ id: z.string().uuid() });
 
