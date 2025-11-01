@@ -53,6 +53,7 @@ export async function investmentGoalsRoutes(app: FastifyInstance) {
 
   const updateBodySchema = {
     type: 'object',
+    minProperties: 1,
     properties: {
       name: { type: 'string', minLength: 1, description: 'Nome da meta' },
       months: {
