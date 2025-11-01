@@ -1,5 +1,4 @@
 import { Month } from '../schemas/investment-goal.js';
-
 export type { Month };
 
 export class InvestmentGoal {
