@@ -64,11 +64,6 @@ export class InvestmentGoalController {
     try {
       const { id } = req.params as { id: string };
       const changes = req.body as UpdateInvestmentGoal;
-
-      if (Object.keys(changes).length === 0) {
-        return reply.code(400).send({ message: 'Nenhum campo para atualizar' });
-      }
-
       return await this.service.update(id, changes);
     } catch (error) {
       const message =
