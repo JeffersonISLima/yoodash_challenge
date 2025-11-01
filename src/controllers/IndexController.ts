@@ -8,7 +8,7 @@ export class IndexController {
     reply: FastifyReply
   ): Promise<void> {
     reply.send({
-      welcome: 'Welcome To Investment Goals API (Yoodash Challenge)',
+      welcome: `Bem-vindo a ${process.env.PROJECT_TITLE}`,
       env: process.env.NODE_ENV || 'development',
       hostname: hostname(),
       pid: process.pid,
