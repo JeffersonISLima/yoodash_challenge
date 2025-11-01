@@ -75,19 +75,25 @@ export class InvestmentGoalService {
     }
   }
 
+  private calculatePerMonthValue(goal: InvestmentGoal): number {
+    return goal.months.length > 0
+      ? Number((goal.totalValue / goal.months.length).toFixed(2))
+      : 0;
+  }
+
+  private monthsHasDuplicates(months: readonly string[]): boolean {
+    return new Set(months).size !== months.length;
+  }
+
   private toResponse(goal: InvestmentGoal): InvestmentGoalResponse {
     return {
       id: goal.id,
       name: goal.name,
       months: goal.months,
       totalValue: goal.totalValue,
-      perMonthValue: goal.getPerMonthValue(),
+      perMonthValue: this.calculatePerMonthValue(goal),
       createdAt: goal.createdAt.toISOString(),
       updatedAt: goal.updatedAt.toISOString(),
     };
-  }
-
-  private monthsHasDuplicates(months: readonly string[]): boolean {
-    return new Set(months).size !== months.length;
   }
 }
