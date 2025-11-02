@@ -1,6 +1,6 @@
 # Investment Goals API
 
-API RESTful para gerenciamento de metas de investimento. Permite criar, listar, pesquisar, atualizar e excluir metas. Calcula automaticamente o valor mensal necessário com base no valor total da meta e no número de meses selecionado.
+API RESTful para gerenciamento de metas de investimento. Permite criar, listar, buscar, atualizar e excluir metas, calculando automaticamente o valor mensal necessário com base no valor total da meta e no número de meses selecionados.
 
 ## Como executar
 
@@ -9,7 +9,7 @@ API RESTful para gerenciamento de metas de investimento. Permite criar, listar, 
 ```bash
 # instalar dependências do projeto
 npm install
-# criar arquivo .env
+# criar arquivo .env (ajustar variáveis conforme necessário)
 cp .env.example .env
 # banco com docker
 docker compose up -d db
@@ -25,14 +25,23 @@ npm run prisma:studio
 
 - Rota de diagnóstico: `GET /`
 
-  - Retorna build, ambiente, hostname e data/hora (veja `IndexController`).
+  - Retorna informações de status/ambiente da API (veja `IndexController`).
+  - Campos retornados:
+    - `welcome`: mensagem de boas-vindas
+    - `env`: ambiente atual (ex.: `development`, `production`)
+    - `hostname`: nome do host onde a API está rodando
+    - `pid`: identificador do processo Node.js
+    - `node_version`: versão do Node.js em execução
+    - `date_time`: data/hora atual no servidor (yyyy-MM-dd HH:mm:ss)
+    - `timezone`: timezone do servidor
+    - `description`: descrição opcional da aplicação (via env `PROJECT_DESCRIPTION`)
 
-- Endpoints:
-  - POST `/investment-goals`
-  - GET `/investment-goals?name=...&month=...&page=1&pageSize=20`
-  - GET `/investment-goals/:id`
-  - PUT `/investment-goals/:id`
-  - DELETE `/investment-goals/:id`
+- Rotas de metas:
+  - Criar meta: `POST /investment-goals`
+  - Listar metas: `GET /investment-goals?name=...&month=...&page=1&pageSize=20`
+  - Buscar meta por ID: `GET /investment-goals/:id`
+  - Atualizar meta por ID: `PUT /investment-goals/:id`
+  - Excluir meta por ID: `DELETE /investment-goals/:id`
 
 Docs Swagger: `http://localhost:3000/docs`
 
