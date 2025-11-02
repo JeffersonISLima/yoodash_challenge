@@ -45,7 +45,7 @@ export async function investmentGoalsRoutes(app: FastifyInstance) {
       },
       totalValue: {
         type: 'number',
-        minimum: 0,
+        exclusiveMinimum: 0,
         description: 'Valor total da meta',
       },
     },
@@ -80,7 +80,7 @@ export async function investmentGoalsRoutes(app: FastifyInstance) {
       },
       totalValue: {
         type: 'number',
-        minimum: 0,
+        exclusiveMinimum: 0,
         description: 'Valor total da meta',
       },
     },
