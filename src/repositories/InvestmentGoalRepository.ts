@@ -83,17 +83,17 @@ export class InvestmentGoalRepository {
       totalValue?: number;
     } = {};
 
-    if (changes.name !== undefined) {
+    if (changes.name) {
       updateData.name = changes.name;
     }
-    if (changes.months !== undefined) {
+    if (changes.months) {
       updateData.months = changes.months;
     }
-    if (changes.totalValue !== undefined) {
+    if (changes.totalValue) {
       updateData.totalValue = changes.totalValue;
     }
 
-    if (Object.keys(updateData).length === 0) {
+    if (!Object.keys(updateData).length) {
       return null;
     }
 
