@@ -19,7 +19,7 @@ export class InvestmentGoalService {
       throw new Error('Meses não podem se repetir');
     }
 
-    if (input.totalValue <= 0) {
+    if (!input.totalValue) {
       throw new Error('Valor total deve ser maior que zero');
     }
 
@@ -46,18 +46,15 @@ export class InvestmentGoalService {
     id: string,
     changes: UpdateInvestmentGoal
   ): Promise<InvestmentGoalResponse> {
-    if (changes.months !== undefined && changes.months.length === 0) {
-      throw new Error('Meses, se enviado, não pode ser vazio');
+    if (changes.months && !changes.months.length) {
+      throw new Error('Meses, se enviado, deve conter pelo menos um mês');
     }
 
-    if (
-      changes.months !== undefined &&
-      this.monthsHasDuplicates(changes.months)
-    ) {
+    if (changes.months && this.monthsHasDuplicates(changes.months)) {
       throw new Error('Meses não podem se repetir');
     }
 
-    if (changes.totalValue !== undefined && changes.totalValue <= 0) {
+    if (!changes.totalValue) {
       throw new Error('Valor total deve ser maior que zero');
     }
 
