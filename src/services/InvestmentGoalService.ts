@@ -19,8 +19,8 @@ export class InvestmentGoalService {
       throw new Error('Meses não podem se repetir');
     }
 
-    if (input.totalValue < 0) {
-      throw new Error('Valor total não pode ser negativo');
+    if (input.totalValue <= 0) {
+      throw new Error('Valor total deve ser maior que zero');
     }
 
     const goal = await this.repository.create(input);
@@ -57,8 +57,8 @@ export class InvestmentGoalService {
       throw new Error('Meses não podem se repetir');
     }
 
-    if (changes.totalValue !== undefined && changes.totalValue < 0) {
-      throw new Error('Valor total não pode ser negativo');
+    if (changes.totalValue !== undefined && changes.totalValue <= 0) {
+      throw new Error('Valor total deve ser maior que zero');
     }
 
     const goal = await this.repository.update(id, changes);
