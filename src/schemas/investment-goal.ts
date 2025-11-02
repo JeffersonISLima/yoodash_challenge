@@ -23,14 +23,21 @@ export const monthEnum = z.enum(
 export const createInvestmentGoalBody = z.object({
   name: z.string().min(1, 'nome é obrigatório'),
   months: z.array(monthEnum).min(1, 'informe pelo menos um mês'),
-  totalValue: z.number().finite().nonnegative(),
+  totalValue: z
+    .number()
+    .finite()
+    .positive('valor total deve ser maior que zero'),
 });
 
 export const updateInvestmentGoalBody = z
   .object({
     name: z.string().min(1, 'nome é obrigatório').optional(),
     months: z.array(monthEnum).min(1, 'informe pelo menos um mês').optional(),
-    totalValue: z.number().finite().nonnegative().optional(),
+    totalValue: z
+      .number()
+      .finite()
+      .positive('valor total deve ser maior que zero')
+      .optional(),
   })
   .refine((data) => Object.keys(data).length > 0, {
     message: 'Pelo menos um campo deve ser fornecido para atualização',
