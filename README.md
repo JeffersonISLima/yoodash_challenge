@@ -1,23 +1,25 @@
 # Investment Goals API
 
-API RESTful para metas de investimento com Fastify, PostgreSQL (Docker), Prisma ORM, Zod e Swagger.
+API RESTful para gerenciamento de metas de investimento. Permite criar, listar, pesquisar, atualizar e excluir metas. Calcula automaticamente o valor mensal necessário com base no valor total da meta e no número de meses selecionado.
 
 ## Como executar
 
 - Desenvolvimento local:
 
 ```bash
+# instalar dependências do projeto
 npm install
-# criar arquivo .env (opcional, usa defaults)
+# criar arquivo .env
 cp .env.example .env
 # banco com docker
 docker compose up -d db
 # gerar Prisma Client
 npm run prisma:generate
-# aplicar migrações (desenvolvimento)
+# aplicar migrações
 npm run prisma:migrate
+# subir o server
 npm run dev
-# para ver as informações cadastradas no banco
+# para ver as informações cadastradas no banco de dados
 npm run prisma:studio
 ```
 
