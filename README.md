@@ -36,7 +36,7 @@ npm run prisma:studio
     - `timezone`: timezone do servidor
     - `description`: descrição opcional da aplicação (via env `PROJECT_DESCRIPTION`)
 
-- Rotas de metas:
+- Rotas de metas de investimentos:
   - Criar meta: `POST /investment-goals`
   - Listar metas: `GET /investment-goals?name=...&month=...&page=1&pageSize=20`
   - Buscar meta por ID: `GET /investment-goals/:id`
