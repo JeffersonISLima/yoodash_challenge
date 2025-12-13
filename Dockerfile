@@ -14,7 +14,7 @@ COPY database ./database
 ENV NODE_ENV=production
 
 # Gerar Prisma Client antes do build
-ENV DATABASE_URL="postgres://postgres:postgres@localhost:5432/yoodash"
+ENV DATABASE_URL="postgres://postgres:postgres@localhost:5432/investment_goals"
 RUN npx prisma generate
 RUN npm run build
 
