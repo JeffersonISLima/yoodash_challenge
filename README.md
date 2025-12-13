@@ -15,7 +15,7 @@ cp .env.example .env
 docker compose up -d db
 # gerar Prisma Client
 npm run prisma:generate
-# aplicar migrações
+# aplicar migrações (será solicitado um nome para a migration ou simplesmente de um Enter)
 npm run prisma:migrate
 # subir o server
 npm run dev
